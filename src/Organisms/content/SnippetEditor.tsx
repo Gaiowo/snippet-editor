@@ -3,9 +3,6 @@ import SnippetDetailsForm from "../../Molecules/content/SnippetDetailsForm";
 import SnippetBodyEditor from "../../Molecules/content/SnippetBodyEditor";
 import { ListedSnippet, SnippetsAction } from "./interfaces";
 
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/theme-github";
-
 interface SnippetEditorProps {
   darkMode: boolean;
   snippet?: ListedSnippet;

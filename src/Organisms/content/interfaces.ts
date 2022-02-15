@@ -23,6 +23,11 @@ interface CreateSnippet {
   type: "CREATE_SNIPPET";
 }
 
+interface AddSnippet {
+  type: "ADD_SNIPPET";
+  payload: Snippet;
+}
+
 interface RemoveSnippet {
   type: "REMOVE_SNIPPET";
   payload: ListedSnippet;
@@ -38,4 +43,4 @@ export interface SelectSnippet {
   payload: ListedSnippet;
 }
 
-export type SnippetsAction = CreateSnippet | RemoveSnippet | UpdateSnippet | SelectSnippet;
+export type SnippetsAction = CreateSnippet | AddSnippet | RemoveSnippet | UpdateSnippet | SelectSnippet;

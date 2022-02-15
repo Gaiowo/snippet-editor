@@ -17,7 +17,7 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
 
   const bgColor: string = snippet.selected ? "bg-slate-200 dark:bg-gray-700" : "bg-slate-100 dark:bg-gray-800";
 
-  const zIndex: string = (10000 - snippet.id).toString();
+  const zIndex: string = (1000 - snippet.id).toString();
 
   return (
     <div

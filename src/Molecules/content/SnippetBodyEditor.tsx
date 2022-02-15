@@ -1,6 +1,9 @@
 import AceEditor from "react-ace";
 import { ListedSnippet, SnippetsAction } from "../../Organisms/content/interfaces";
 
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-github";
+
 interface SnippetBodyEditorProps {
   darkMode: boolean;
   snippet: ListedSnippet;
