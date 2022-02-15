@@ -1,5 +1,5 @@
-import SnippetListItem from "../../Molecules/content/SnippetListItem";
 import { ListedSnippet, SnippetsAction } from "./interfaces";
+import SnippetListItem from "../../Molecules/content/SnippetListItem";
 import SnippetListMenu from "../../Molecules/content/SnippetListMenu";
 
 interface SnippetListProps {

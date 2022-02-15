@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./Organisms/header/Header";
 import Content from "./Organisms/content/Content";
 

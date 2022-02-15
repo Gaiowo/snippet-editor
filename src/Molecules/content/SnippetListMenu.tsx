@@ -1,10 +1,10 @@
-import React from "react";
+import { Dispatch } from "react";
 import { faFileImport, faPlus, faFileExport } from "@fortawesome/free-solid-svg-icons";
 import { SnippetsAction } from "../../Organisms/content/interfaces";
 import Button from "../../Atoms/Button";
 
 interface SnippetListMenuProps {
-  dispatch: React.Dispatch<SnippetsAction>;
+  dispatch: Dispatch<SnippetsAction>;
 }
 
 function SnippetListMenu(props: SnippetListMenuProps) {
