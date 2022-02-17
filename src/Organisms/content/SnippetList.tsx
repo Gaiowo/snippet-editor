@@ -1,4 +1,4 @@
-import { ListedSnippet, SnippetsAction } from "./interfaces";
+import { ListedSnippet, SnippetsAction } from "./snippet";
 import SnippetListItem from "../../Molecules/content/SnippetListItem";
 import SnippetListMenu from "../../Molecules/content/SnippetListMenu";
 

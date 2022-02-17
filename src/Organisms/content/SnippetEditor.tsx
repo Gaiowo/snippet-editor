@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import SnippetDetailsForm from "../../Molecules/content/SnippetDetailsForm";
 import SnippetBodyEditor from "../../Molecules/content/SnippetBodyEditor";
-import { ListedSnippet, SnippetsAction } from "./interfaces";
+import { ListedSnippet, SnippetsAction } from "./snippet";
 
 interface SnippetEditorProps {
   darkMode: boolean;

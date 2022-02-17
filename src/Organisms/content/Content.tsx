@@ -5,7 +5,7 @@ import SnippetEditor from "./SnippetEditor";
 import SnippetImportForm from "./SnippetImportForm";
 import SnippetExportForm from "./SnippetExportForm";
 import Button from "../../Atoms/Button";
-import { defaultSnippet, ListedSnippet, SnippetsAction } from "./interfaces";
+import { defaultSnippet, ListedSnippet, SnippetsAction } from "./snippet";
 
 interface ContentProps {
   darkMode: boolean;

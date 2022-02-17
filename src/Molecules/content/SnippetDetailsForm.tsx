@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { ListedSnippet, SnippetsAction } from "../../Organisms/content/interfaces";
+import { ListedSnippet, SnippetsAction } from "../../Organisms/content/snippet";
 import Input from "../../Atoms/Input";
 import TextArea from "../../Atoms/TextArea";
 

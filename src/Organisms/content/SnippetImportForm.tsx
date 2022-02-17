@@ -2,7 +2,7 @@ import { useState, Dispatch } from "react";
 import AceEditor from "react-ace";
 import Modal from "../../Atoms/Modal";
 import Button from "../../Atoms/Button";
-import { SnippetsAction } from "../../Organisms/content/interfaces";
+import { SnippetsAction } from "./snippet";
 
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/mode-json";

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Modal from "../../Atoms/Modal";
 import Button from "../../Atoms/Button";
-import { ListedSnippet } from "./interfaces";
+import { ListedSnippet } from "./snippet";
 
 interface SnippetExportFormProps {
   darkMode: boolean;

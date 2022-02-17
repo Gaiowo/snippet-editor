@@ -1,5 +1,5 @@
 import AceEditor from "react-ace";
-import { ListedSnippet, SnippetsAction } from "../../Organisms/content/interfaces";
+import { ListedSnippet, SnippetsAction } from "../../Organisms/content/snippet";
 
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
