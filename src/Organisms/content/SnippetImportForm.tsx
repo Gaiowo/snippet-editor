@@ -27,17 +27,9 @@ type Parsed = {
 
 function SnippetImportForm(props: SnippetImportFormProps): JSX.Element {
   const [value, setValue] = useState("");
+  const [message, setMessage] = useState("");
 
-  const importSnippets = (): void => {
-    console.log("import!");
-    const valueWithoutComments = value
-      .replaceAll("\t", "")
-      .split("\n")
-      .filter((line: string) => !line.startsWith("//")) // remove comments
-      .join("\n");
-
-    const parsed: Parsed = JSON.parse(valueWithoutComments) as Parsed;
-
+  const addSnippets = (parsed: Parsed) => {
     Object.keys(parsed).forEach((key: string) => {
       console.log("adding " + key);
       const snippet: SnippetInJSON = parsed[key];
@@ -52,8 +44,26 @@ function SnippetImportForm(props: SnippetImportFormProps): JSX.Element {
         },
       });
     });
+  };
 
-    props.close();
+  const importSnippets = (): void => {
+    console.log("import!");
+    const valueWithoutComments = value
+      .replaceAll("\t", "")
+      .split("\n")
+      .filter((line: string) => !line.startsWith("//")) // remove comments
+      .join("\n");
+
+    try {
+      const parsed: Parsed = JSON.parse(valueWithoutComments);
+      addSnippets(parsed);
+
+      props.close();
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setMessage(e.message);
+      }
+    }
   };
 
   return (
@@ -69,11 +79,12 @@ function SnippetImportForm(props: SnippetImportFormProps): JSX.Element {
         value={value}
         onChange={(value: string): void => setValue(value)}
       />
-      <div className="w-full">
+      <div className="flex w-full gap-2">
+        <span className="block ml-auto leading-9 text-amber-600 dark:text-yellow-400">{message}</span>
         <Button
           title="Import"
           onClick={importSnippets}
-          className="block px-2 ml-auto leading-9 bg-gray-300 h-9 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-slate-50"
+          className="block px-2 leading-9 bg-gray-300 h-9 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-slate-50"
         />
       </div>
     </Modal>
