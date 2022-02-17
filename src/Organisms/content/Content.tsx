@@ -3,6 +3,7 @@ import { faFileImport, faPlus, faFileExport } from "@fortawesome/free-solid-svg-
 import SnippetList from "./SnippetList";
 import SnippetEditor from "./SnippetEditor";
 import SnippetImportForm from "./SnippetImportForm";
+import SnippetExportForm from "./SnippetExportForm";
 import Button from "../../Atoms/Button";
 import { defaultSnippet, ListedSnippet, SnippetsAction } from "./interfaces";
 
@@ -13,6 +14,7 @@ interface ContentProps {
 function Content(props: ContentProps): JSX.Element {
   const [snippets, dispatch]: [ListedSnippet[], Dispatch<SnippetsAction>] = useReducer(snippetsReducer, []);
   const [isImportClicked, setImportClicked] = useState(false);
+  const [isExportClicked, setExportClicked] = useState(false);
 
   const importButton = (
     <Button
@@ -37,7 +39,7 @@ function Content(props: ContentProps): JSX.Element {
       icon={faFileExport}
       title="Export"
       className="ml-auto bg-gray-400 hover:bg-gray-500 dark:bg-gray-500 dark:hover:bg-gray-400 dark:text-slate-50"
-      onClick={() => {}}
+      onClick={() => setExportClicked(true)}
     />
   );
 
@@ -52,6 +54,7 @@ function Content(props: ContentProps): JSX.Element {
         <SnippetEditor {...props} snippet={selectedSnippet} dispatch={dispatch}></SnippetEditor>
       </div>
       {isImportClicked && <SnippetImportForm {...props} close={() => setImportClicked(false)} dispatch={dispatch} />}
+      {isExportClicked && <SnippetExportForm {...props} close={() => setExportClicked(false)} snippets={snippets} />}
     </>
   );
 }
