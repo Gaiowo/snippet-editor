@@ -38,7 +38,7 @@ function Content(props: ContentProps): JSX.Element {
     <Button
       icon={faFileExport}
       title="Export"
-      className="ml-auto bg-gray-400 hover:bg-gray-500 dark:bg-gray-500 dark:hover:bg-gray-400 dark:text-slate-50"
+      className="ml-auto bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-slate-50"
       onClick={() => setExportClicked(true)}
     />
   );
