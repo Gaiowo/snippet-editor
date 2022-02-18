@@ -9,12 +9,13 @@ interface ButtonProps {
 }
 
 function Button(props: ButtonProps): JSX.Element {
-  const gap = props.icon && props.title ? "ml-2" : "";
-
   return (
-    <button className={`h-8 leading-8 px-1.5 rounded-sm ${props.className}`} onClick={props.onClick}>
-      {props.icon && <FontAwesomeIcon icon={props.icon} className="dark:text-slate-50" />}
-      {props.title && <span className={`${gap} font-medium leading-3 dark:text-slate-50`}>{props.title}</span>}
+    <button
+      className={`inline-flex justify-center items-center gap-1.5 h-8 px-1.5 py-0 rounded-sm dark:text-slate-50 ${props.className}`}
+      onClick={props.onClick}
+    >
+      {props.icon && <FontAwesomeIcon icon={props.icon} />}
+      {props.title && <span className={`text-sm font-semibold tracking-wider`}>{props.title}</span>}
     </button>
   );
 }

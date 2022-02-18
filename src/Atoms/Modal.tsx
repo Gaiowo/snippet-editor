@@ -36,7 +36,7 @@ function Modal(props: ModalProps): JSX.Element {
         className={`rounded p-4 z-[10000] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-slate-200 dark:bg-gray-700 ${props.className}`}
       >
         <Button className="absolute w-6 h-6 leading-6 top-3 right-3" onClick={props.close} icon={faXmark} />
-        {props.title && <h3 className="mb-3 text-xl font-semibold dark:text-slate-50">{props.title}</h3>}
+        {props.title && <h3 className="mb-3 text-lg font-semibold tracking-wide dark:text-slate-50">{props.title}</h3>}
         {props.children}
       </div>
     </div>
