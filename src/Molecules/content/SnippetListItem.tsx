@@ -29,9 +29,7 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
       <span className="font-normal dark:text-slate-50">{snippet.title === "" ? "No Title" : snippet.title}</span>
 
       {/* Prefix */}
-      <span className="ml-1.5 text-xs font-light text-slate-400">
-        {snippet.prefix === "" ? "No Prefix" : snippet.prefix}
-      </span>
+      <span className="ml-1.5 text-xs font-light text-slate-400">{snippet.prefix}</span>
 
       {/* Description */}
       <span className="absolute bottom-0 mb-1 ml-1.5 left-0 font-normal text-sm dark:text-slate-50">
@@ -40,7 +38,7 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
 
       <DropDownMenu
         className="absolute top-0 right-0 w-6 h-6 mt-1 mr-1"
-        buttonClassName="mr-auto text-slate-500 hover:bg-gray-300 dark:hover:bg-gray-600"
+        buttonClassName="ml-auto text-slate-500 hover:bg-gray-300 dark:hover:bg-gray-600"
       >
         <DropDownMenuItem
           title="Remove this item"

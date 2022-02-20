@@ -12,7 +12,7 @@ interface SnippetListMenuProps {
 
 function SnippetListMenu(props: SnippetListMenuProps) {
   return (
-    <>
+    <div className="w-full border-b border-inherit">
       {/* toggle */}
       <div
         className="flex items-center justify-between w-full h-10 px-2 cursor-pointer lg:hidden bg-inherit dark:text-slate-50"
@@ -22,13 +22,13 @@ function SnippetListMenu(props: SnippetListMenuProps) {
         <Button icon={props.shown ? faChevronDown : faChevronUp} onClick={() => {}} />
       </div>
       {props.shown && (
-        <div className="flex items-center w-full h-10 px-1 border-b bg-inherit border-inherit">
+        <div className="flex items-center w-full h-10 px-1 bg-inherit">
           {props.importButton}
           {props.createButton}
           {props.exportButton}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

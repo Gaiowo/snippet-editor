@@ -16,7 +16,7 @@ function SnippetList(props: SnippetListProps): JSX.Element {
 
   return (
     <div
-      className={`relative flex flex-col items-center flex-none w-full border-r lg:w-80 lg:h-full bg-slate-100 dark:bg-gray-800 border-slate-300 dark:border-slate-600 ${
+      className={`relative flex flex-col items-center flex-none w-full lg:border-r lg:w-80 lg:h-full bg-slate-100 dark:bg-gray-800 border-slate-300 dark:border-slate-600 ${
         shown && "h-full"
       }`}
     >

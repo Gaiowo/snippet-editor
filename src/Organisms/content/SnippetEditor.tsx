@@ -19,7 +19,7 @@ function SnippetEditor(props: SnippetEditorProps): JSX.Element {
         </>
       ) : (
         <div className="p-5 grow bg-slate-100 dark:bg-gray-800 dark:text-slate-50">
-          <p className="text-base font-medium tracking-wide">Select a snippet to Edit!</p>
+          <p className="text-base font-medium tracking-wide lg:hidden">Select a snippet to edit from the list above.</p>
         </div>
       )}
     </div>
