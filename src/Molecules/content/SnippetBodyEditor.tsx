@@ -20,7 +20,7 @@ function SnippetBodyEditor(props: SnippetBodyEditorProps): JSX.Element {
       {/* remove cursor when the Ace Editor is not focused */}
       <style>{`.ace_hidden-cursors { display: none; }`}</style>
       <AceEditor
-        className="grow min-w-[50rem] caret-transparent focus:caret-inherit"
+        className="grow caret-transparent focus:caret-inherit"
         name={`snippet-${props.snippet.id}`}
         theme={props.darkMode ? "monokai" : "github"}
         width="full"

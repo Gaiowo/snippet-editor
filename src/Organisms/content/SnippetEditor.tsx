@@ -11,7 +11,7 @@ interface SnippetEditorProps {
 
 function SnippetEditor(props: SnippetEditorProps): JSX.Element {
   return (
-    <div className="flex grow">
+    <div className="flex flex-wrap grow lg:h-full">
       {props.snippet ? (
         <>
           <SnippetDetailsForm snippet={props.snippet} dispatch={props.dispatch} />

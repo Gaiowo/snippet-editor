@@ -25,10 +25,10 @@ function Content(props: ContentProps): JSX.Element {
     />
   );
 
-  const addButton = (
+  const createButton = (
     <Button
       icon={faPlus}
-      title="Add"
+      title="Create"
       className="mr-1.5 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500"
       onClick={() => dispatch({ type: "CREATE_SNIPPET" })}
     />
@@ -43,13 +43,13 @@ function Content(props: ContentProps): JSX.Element {
     />
   );
 
-  const snippetListProps = { snippets, dispatch, importButton, addButton, exportButton };
+  const snippetListProps = { snippets, dispatch, importButton, createButton, exportButton };
 
   const selectedSnippet: ListedSnippet | undefined = snippets.find((snippet) => snippet.selected);
 
   return (
     <>
-      <div className="flex grow">
+      <div className="flex flex-col flex-wrap content-start grow lg:flex-row">
         <SnippetList {...snippetListProps} />
         <SnippetEditor {...props} snippet={selectedSnippet} dispatch={dispatch}></SnippetEditor>
       </div>
