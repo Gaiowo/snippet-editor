@@ -25,17 +25,21 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
       onClick={onClickItem}
       style={{ zIndex: zIndex }}
     >
-      <div className="flex flex-col justify-between w-full h-full px-1.5 py-1">
-        <div>
+      <div className="flex flex-col justify-between w-4/5 h-full px-1.5 py-1">
+        <div className="flex items-center w-full h-min">
           {/* Title */}
-          <span className="font-normal dark:text-slate-50">{snippet.title === "" ? "No Title" : snippet.title}</span>
+          <span className="inline-block font-normal max-w-[60%] overflow-ellipsis overflow-hidden dark:text-slate-50 whitespace-nowrap">
+            {snippet.title === "" ? "No Title" : snippet.title}
+          </span>
 
           {/* Prefix */}
-          <span className="ml-1.5 text-xs font-light text-slate-400">{snippet.prefix}</span>
+          <span className="inline-block max-w-[40%] overflow-ellipsis overflow-hidden ml-1.5 text-xs font-light text-slate-400 whitespace-nowrap">
+            {snippet.prefix}
+          </span>
         </div>
 
         {/* Description */}
-        <span className="block text-sm font-normal dark:text-slate-50">
+        <span className="block w-full overflow-hidden text-sm font-normal dark:text-slate-50 overflow-ellipsis whitespace-nowrap">
           {snippet.description === "" ? "No Description" : snippet.description}
         </span>
       </div>
