@@ -5,7 +5,7 @@ import SnippetEditor from "./SnippetEditor";
 import SnippetImportForm from "./SnippetImportForm";
 import SnippetExportForm from "./SnippetExportForm";
 import Button from "../../Atoms/Button";
-import { defaultSnippet, ListedSnippet, SnippetsAction } from "./snippet";
+import { snippetsReducer, ListedSnippet, SnippetsAction } from "./snippet";
 
 interface ContentProps {
   darkMode: boolean;
@@ -57,31 +57,6 @@ function Content(props: ContentProps): JSX.Element {
       {isExportClicked && <SnippetExportForm {...props} close={() => setExportClicked(false)} snippets={snippets} />}
     </>
   );
-}
-
-let snippetCount: number = 0;
-
-function snippetsReducer(snippets: ListedSnippet[], action: SnippetsAction): ListedSnippet[] {
-  switch (action.type) {
-    case "CREATE_SNIPPET":
-      const newSnippets: ListedSnippet[] = [...snippets];
-      // set all snippets to unselected
-      newSnippets.forEach((snippet) => (snippet.selected = false));
-      // add new snippet
-      newSnippets.push({ ...defaultSnippet, id: snippetCount++ });
-      return newSnippets;
-    case "ADD_SNIPPET":
-      const unSelected: ListedSnippet[] = snippets.map((snippet) => ({ ...snippet, selected: false }));
-      return [...unSelected, { ...action.payload, id: snippetCount++ }];
-    case "REMOVE_SNIPPET":
-      return snippets.filter((snippet) => snippet.id !== action.payload.id);
-    case "UPDATE_SNIPPET":
-      return snippets.map((snippet) => (snippet.id === action.payload.id ? action.payload : snippet));
-    case "SELECT_SNIPPET":
-      return snippets.map((snippet) =>
-        snippet.id === action.payload.id ? { ...snippet, selected: true } : { ...snippet, selected: false }
-      );
-  }
 }
 
 export default Content;

@@ -44,3 +44,26 @@ export interface SelectSnippet {
 }
 
 export type SnippetsAction = CreateSnippet | AddSnippet | RemoveSnippet | UpdateSnippet | SelectSnippet;
+
+export function snippetsReducer(snippets: ListedSnippet[], action: SnippetsAction): ListedSnippet[] {
+  switch (action.type) {
+    case "CREATE_SNIPPET":
+      const newSnippets: ListedSnippet[] = [...snippets];
+      // set all snippets to unselected
+      newSnippets.forEach((snippet) => (snippet.selected = false));
+      // add new snippet
+      newSnippets.push({ ...defaultSnippet, id: snippets.length });
+      return newSnippets;
+    case "ADD_SNIPPET":
+      const unSelected: ListedSnippet[] = snippets.map((snippet) => ({ ...snippet, selected: false }));
+      return [...unSelected, { ...action.payload, id: snippets.length }];
+    case "REMOVE_SNIPPET":
+      return snippets.filter((snippet) => snippet.id !== action.payload.id);
+    case "UPDATE_SNIPPET":
+      return snippets.map((snippet) => (snippet.id === action.payload.id ? action.payload : snippet));
+    case "SELECT_SNIPPET":
+      return snippets.map((snippet) =>
+        snippet.id === action.payload.id ? { ...snippet, selected: true } : { ...snippet, selected: false }
+      );
+  }
+}
