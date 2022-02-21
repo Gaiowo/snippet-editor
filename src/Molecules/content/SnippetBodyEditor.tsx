@@ -3,6 +3,7 @@ import { ListedSnippet, SnippetsAction } from "../../Organisms/content/snippet";
 
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/mode-text";
 
 interface SnippetBodyEditorProps {
   darkMode: boolean;
@@ -23,6 +24,7 @@ function SnippetBodyEditor(props: SnippetBodyEditorProps): JSX.Element {
         className="grow caret-transparent focus:caret-inherit"
         name={`snippet-${props.snippet.id}`}
         theme={props.darkMode ? "monokai" : "github"}
+        mode="text"
         width="full"
         height="full"
         fontSize={16}
