@@ -33,7 +33,7 @@ function DropDownMenu(props: DropDownMenuProps): JSX.Element {
   }, [open]);
 
   return (
-    <div ref={node} className={`z-0 w-min h-min flex flex-col ${props.className}`}>
+    <div ref={node} className={`w-min h-min flex flex-col ${props.className}`}>
       <button
         className={`block w-6 h-6 text-center rounded-full ${props.buttonClassName}`}
         onClick={() => setOpen(!open)}
@@ -42,7 +42,7 @@ function DropDownMenu(props: DropDownMenuProps): JSX.Element {
       </button>
 
       {/* items */}
-      <div onClick={() => setOpen(false)} className="z-10 overflow-hidden rounded-sm w-44 drop-shadow-lg">
+      <div onClick={() => setOpen(false)} className="overflow-hidden rounded-sm w-44 drop-shadow-lg">
         {open && props.children}
       </div>
     </div>

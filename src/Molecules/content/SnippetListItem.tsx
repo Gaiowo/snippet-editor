@@ -45,7 +45,7 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
       </div>
 
       <DropDownMenu
-        className="absolute top-0 right-0 w-6 h-6 mt-1 mr-1"
+        className="absolute top-0 right-0 mt-1 mr-1"
         buttonClassName="ml-auto text-slate-500 hover:bg-gray-300 dark:hover:bg-gray-600"
       >
         <DropDownMenuItem
