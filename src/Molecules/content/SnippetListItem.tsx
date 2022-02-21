@@ -21,20 +21,24 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
 
   return (
     <div
-      className={`relative w-full h-14 border-b border-inherit px-1.5 py-1 cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 ${bgColor} ${zIndex}`}
+      className={`shrink-0 relative w-full h-14 border-b border-inherit cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 ${bgColor} ${zIndex}`}
       onClick={onClickItem}
       style={{ zIndex: zIndex }}
     >
-      {/* Title */}
-      <span className="font-normal dark:text-slate-50">{snippet.title === "" ? "No Title" : snippet.title}</span>
+      <div className="flex flex-col justify-between w-full h-full px-1.5 py-1">
+        <div>
+          {/* Title */}
+          <span className="font-normal dark:text-slate-50">{snippet.title === "" ? "No Title" : snippet.title}</span>
 
-      {/* Prefix */}
-      <span className="ml-1.5 text-xs font-light text-slate-400">{snippet.prefix}</span>
+          {/* Prefix */}
+          <span className="ml-1.5 text-xs font-light text-slate-400">{snippet.prefix}</span>
+        </div>
 
-      {/* Description */}
-      <span className="absolute bottom-0 mb-1 ml-1.5 left-0 font-normal text-sm dark:text-slate-50">
-        {snippet.description === "" ? "No Description" : snippet.description}
-      </span>
+        {/* Description */}
+        <span className="block text-sm font-normal dark:text-slate-50">
+          {snippet.description === "" ? "No Description" : snippet.description}
+        </span>
+      </div>
 
       <DropDownMenu
         className="absolute top-0 right-0 w-6 h-6 mt-1 mr-1"

@@ -49,7 +49,7 @@ function Content(props: ContentProps): JSX.Element {
 
   return (
     <>
-      <div className="flex flex-col flex-wrap content-start grow lg:flex-row">
+      <div className="flex flex-col flex-wrap content-start w-full h-[calc(100vh-2.5rem)] lg:flex-row">
         <SnippetList {...snippetListProps} />
         <SnippetEditor {...props} snippet={selectedSnippet} dispatch={dispatch}></SnippetEditor>
       </div>

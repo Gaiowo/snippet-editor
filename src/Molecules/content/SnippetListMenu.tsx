@@ -12,23 +12,23 @@ interface SnippetListMenuProps {
 
 function SnippetListMenu(props: SnippetListMenuProps) {
   return (
-    <div className="w-full border-b border-inherit">
+    <>
       {/* toggle */}
       <div
-        className="flex items-center justify-between w-full h-10 px-2 cursor-pointer lg:hidden bg-inherit dark:text-slate-50"
+        className="flex items-center justify-between w-full h-10 px-2 border-b cursor-pointer shrink-0 lg:hidden bg-inherit dark:text-slate-50 border-inherit"
         onClick={() => props.setShown(!props.shown)}
       >
         <FontAwesomeIcon icon={faList} />
         <Button icon={props.shown ? faChevronDown : faChevronUp} onClick={() => {}} />
       </div>
       {props.shown && (
-        <div className="flex items-center w-full h-10 px-1 bg-inherit">
+        <div className="flex items-center w-full h-10 px-1 border-b shrink-0 bg-inherit border-inherit">
           {props.importButton}
           {props.createButton}
           {props.exportButton}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
