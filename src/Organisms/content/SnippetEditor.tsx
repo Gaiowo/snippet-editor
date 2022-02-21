@@ -1,10 +1,7 @@
 import { Dispatch } from "react";
 import SnippetDetailsForm from "../../Molecules/content/SnippetDetailsForm";
 import SnippetBodyEditor from "../../Molecules/content/SnippetBodyEditor";
-import { ListedSnippet, SnippetsAction } from "./interfaces";
-
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/theme-github";
+import { ListedSnippet, SnippetsAction } from "./snippet";
 
 interface SnippetEditorProps {
   darkMode: boolean;
@@ -14,15 +11,15 @@ interface SnippetEditorProps {
 
 function SnippetEditor(props: SnippetEditorProps): JSX.Element {
   return (
-    <div className="flex grow">
+    <div className="flex flex-wrap grow lg:h-full">
       {props.snippet ? (
         <>
           <SnippetDetailsForm snippet={props.snippet} dispatch={props.dispatch} />
           <SnippetBodyEditor {...props} snippet={props.snippet} />
         </>
       ) : (
-        <div className="p-5 grow bg-slate-100 dark:bg-gray-800 dark:text-slate-200">
-          <p>Select a snippet to Edit!</p>
+        <div className="p-5 grow bg-slate-100 dark:bg-gray-800 dark:text-slate-50">
+          <p className="text-base font-medium tracking-wide lg:hidden">Select a snippet to edit from the list above.</p>
         </div>
       )}
     </div>

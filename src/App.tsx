@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { isTablet, isDesktop } from "react-device-detect";
+import { useDarkMode } from "./Organisms/content/darkMode";
 import Header from "./Organisms/header/Header";
 import Content from "./Organisms/content/Content";
 
@@ -6,27 +7,19 @@ function App(): JSX.Element {
   const [darkMode, toggleDarkMode] = useDarkMode();
 
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Content darkMode={darkMode} />
-    </div>
+    <>
+      {isTablet || isDesktop ? (
+        <div className="flex flex-col w-screen h-screen overflow-hidden">
+          <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <Content darkMode={darkMode} />
+        </div>
+      ) : (
+        <div className="w-screen h-screen p-10 bg-gray-800">
+          <p className="block text-center text-slate-50">Sorry. This application is only available on PC or tablet.</p>
+        </div>
+      )}
+    </>
   );
-}
-
-function useDarkMode(): [boolean, () => void] {
-  const [darkMode, setDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches // true if dark mode is selected
-  );
-
-  const toggleDarkMode = (): void => setDarkMode(!darkMode);
-
-  if (darkMode) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
-  return [darkMode, toggleDarkMode];
 }
 
 export default App;

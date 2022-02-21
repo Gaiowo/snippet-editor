@@ -11,7 +11,7 @@ function DarkModeToggle(props: DarkModeToggleProps): JSX.Element {
     <Button
       icon={props.darkMode ? faSun : faMoon}
       onClick={props.toggleDarkMode}
-      className="w-8 ml-auto mr-1.5 bg-gray-400 hover:bg-gray-500 text-slate-50"
+      className="w-8 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 dark:text-slate-50"
     />
   );
 }

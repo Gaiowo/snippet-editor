@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { ListedSnippet, SnippetsAction } from "../../Organisms/content/interfaces";
+import { ListedSnippet, SnippetsAction } from "../../Organisms/content/snippet";
 import DropDownMenu from "../../Atoms/DropDownMenu";
 import DropDownMenuItem from "../../Atoms/DropDownMenuItem";
 
@@ -17,30 +17,36 @@ function SnippetListItem(props: SnippetListItemProps): JSX.Element {
 
   const bgColor: string = snippet.selected ? "bg-slate-200 dark:bg-gray-700" : "bg-slate-100 dark:bg-gray-800";
 
-  const zIndex: string = (10000 - snippet.id).toString();
+  const zIndex: string = (1000 - snippet.id).toString();
 
   return (
     <div
-      className={`relative w-full h-14 border-b border-inherit px-1.5 py-1 cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 ${bgColor} ${zIndex}`}
+      className={`shrink-0 relative w-full h-14 border-b border-inherit cursor-pointer hover:bg-slate-200 dark:hover:bg-gray-700 ${bgColor} ${zIndex}`}
       onClick={onClickItem}
       style={{ zIndex: zIndex }}
     >
-      {/* Title */}
-      <span className="font-normal dark:text-slate-50">{snippet.title === "" ? "No Title" : snippet.title}</span>
+      <div className="flex flex-col justify-between w-4/5 h-full px-1.5 py-1">
+        <div className="flex items-center w-full h-min">
+          {/* Title */}
+          <span className="inline-block font-normal max-w-[60%] overflow-ellipsis overflow-hidden dark:text-slate-50 whitespace-nowrap">
+            {snippet.title === "" ? "No Title" : snippet.title}
+          </span>
 
-      {/* Prefix */}
-      <span className="ml-1.5 text-xs font-light text-slate-400">
-        {snippet.prefix === "" ? "No Prefix" : snippet.prefix}
-      </span>
+          {/* Prefix */}
+          <span className="inline-block max-w-[40%] overflow-ellipsis overflow-hidden ml-1.5 text-xs font-light text-slate-400 whitespace-nowrap">
+            {snippet.prefix}
+          </span>
+        </div>
 
-      {/* Description */}
-      <span className="absolute bottom-0 mb-1 ml-1.5 left-0 font-normal text-sm dark:text-slate-50">
-        {snippet.description === "" ? "No Description" : snippet.description}
-      </span>
+        {/* Description */}
+        <span className="block w-full overflow-hidden text-sm font-normal dark:text-slate-50 overflow-ellipsis whitespace-nowrap">
+          {snippet.description === "" ? "No Description" : snippet.description}
+        </span>
+      </div>
 
       <DropDownMenu
-        className="absolute top-0 right-0 w-6 h-6 mt-1 mr-1"
-        buttonClassName="mr-auto text-slate-500 hover:bg-gray-300 dark:hover:bg-gray-600"
+        className="absolute top-0 right-0 mt-1 mr-1"
+        buttonClassName="ml-auto text-slate-500 hover:bg-gray-300 dark:hover:bg-gray-600"
       >
         <DropDownMenuItem
           title="Remove this item"
